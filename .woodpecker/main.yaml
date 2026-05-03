@@ -1,0 +1,18 @@
+when:
+  branch: main
+  event: [push, pull_request, manual]
+
+steps:
+  - name: Lint
+    image: ghcr.io/cirruslabs/android-sdk:36
+    commands:
+      - ./gradlew lint --no-daemon
+    environment:
+      GRADLE_OPTS: "-Dorg.gradle.daemon=false"
+
+  - name: Test
+    image: ghcr.io/cirruslabs/android-sdk:36
+    commands:
+      - ./gradlew test --no-daemon
+    environment:
+      GRADLE_OPTS: "-Dorg.gradle.daemon=false"

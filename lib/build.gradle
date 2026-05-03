@@ -1,0 +1,34 @@
+plugins {
+    alias(libs.plugins.android.library)
+}
+
+android {
+    namespace 'org.socialmaps.sdk.android'
+    compileSdk {
+        version = release(36) {
+            minorApiLevel = 1
+        }
+    }
+
+    defaultConfig {
+        minSdk 21
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+}
+
+dependencies {
+    compileOnly libs.annotation.jvm
+    testImplementation libs.junit
+    testImplementation libs.json
+    testImplementation libs.mockwebserver3.junit4
+    testImplementation libs.robolectric
+    androidTestImplementation libs.espresso.core
+    androidTestImplementation libs.ext.junit
+}
