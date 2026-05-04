@@ -1,9 +1,11 @@
 plugins {
     alias(libs.plugins.android.library)
+
+    id 'com.vanniktech.maven.publish'
 }
 
 android {
-    namespace 'org.socialmaps.sdk.android'
+    namespace = 'org.socialmaps.sdk.android'
     compileSdk {
         version = release(36) {
             minorApiLevel = 1
@@ -11,14 +13,14 @@ android {
     }
 
     defaultConfig {
-        minSdk 21
+        minSdk = 21
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
 }
@@ -31,4 +33,37 @@ dependencies {
     testImplementation libs.robolectric
     androidTestImplementation libs.espresso.core
     androidTestImplementation libs.ext.junit
+}
+
+mavenPublishing {
+    coordinates("org.socialmaps", "sdk-android", "0.0.0-SNAPSHOT")
+
+    pom {
+        name = 'Social Maps SDK for Android'
+        description = 'Social Maps SDK for Android'
+        inceptionYear = '2026'
+        url = 'https://codeberg.org/socialmaps/sdk-android'
+
+        licenses {
+            license {
+                name = 'MIT License'
+                url = 'https://spdx.org/licenses/MIT.html'
+            }
+        }
+        developers {
+            developer {
+                id = 'boramalper'
+                name = 'Bora M. Alper'
+            }
+        }
+        scm {
+            url = 'https://codeberg.org/socialmaps/sdk-android'
+            connection = 'scm:git:git://codeberg.org/socialmaps/sdk-android.git'
+            developerConnection = 'scm:git:ssh://git@codeberg.org/socialmaps/sdk-android.git'
+        }
+    }
+
+    publishToMavenCentral()
+
+    signAllPublications()
 }
