@@ -23,3 +23,10 @@ steps:
       - ./gradlew publishToMavenLocal --no-daemon
     environment:
       GRADLE_OPTS: "-Dorg.gradle.daemon=false"
+
+  - name: dokkaGeneratePublicationHtml
+    image: ghcr.io/cirruslabs/android-sdk:36
+    commands:
+      - ./gradlew dokkaGeneratePublicationHtml --no-daemon
+    environment:
+      GRADLE_OPTS: "-Dorg.gradle.daemon=false"

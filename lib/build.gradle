@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.android.library)
+    alias(libs.plugins.dokka)
 
     id 'com.vanniktech.maven.publish'
 }
@@ -27,12 +28,35 @@ android {
 
 dependencies {
     compileOnly libs.annotation.jvm
+    dokkaPlugin libs.dokka.kotlin.as.java.plugin
     testImplementation libs.junit
     testImplementation libs.json
     testImplementation libs.mockwebserver3.junit4
     testImplementation libs.robolectric
     androidTestImplementation libs.espresso.core
     androidTestImplementation libs.ext.junit
+}
+
+dokka {
+    dokkaPublications {
+        html {
+            moduleName.set('sdk-android')
+            moduleVersion.set('0.0.0-SNAPSHOT')
+            outputDirectory.set(layout.buildDirectory.dir('dokka/html'))
+        }
+    }
+
+    dokkaSourceSets {
+        configureEach {
+            displayName.set('Android')
+
+            sourceLink {
+                localDirectory.set(file('src/main/java'))
+                remoteUrl.set(new URI('https://codeberg.org/socialmaps/sdk-android/src/branch/main/lib/src/main/java'))
+                remoteLineSuffix.set('#L')
+            }
+        }
+    }
 }
 
 mavenPublishing {
