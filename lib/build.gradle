@@ -40,7 +40,7 @@ dependencies {
 dokka {
     dokkaPublications {
         html {
-            moduleName.set('sdk-android')
+            moduleName.set('socialmaps-sdk-android')
             moduleVersion.set('0.0.0-SNAPSHOT')
             outputDirectory.set(layout.buildDirectory.dir('dokka/html'))
         }
