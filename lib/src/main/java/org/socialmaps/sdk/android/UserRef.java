@@ -11,7 +11,7 @@ public class UserRef extends SocialMapsObject {
     private final User user;
 
     UserRef(@NonNull JSONObject json) throws JSONException {
-        super(ObjectType.USER, json.getLong("id"));
+        super(json.getLong("id"));
         if (json.optString("object").equals("user")) {
             this.user = new User(json);
         } else {

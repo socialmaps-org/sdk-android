@@ -24,7 +24,7 @@ public class Place extends SocialMapsObject {
     public final Map<String, String> osmTags;
 
     Place(JSONObject json) throws JSONException {
-        super(ObjectType.PLACE, json.getLong("id"));
+        super(json.getLong("id"));
         this.name = json.getString("name");
         this.location = Location.fromJSON(json.getJSONObject("location"));
         this.ratingStats = PlaceRatingStats.fromJSON(json.getJSONObject("rating_stats"));

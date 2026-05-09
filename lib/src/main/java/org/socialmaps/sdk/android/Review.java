@@ -23,7 +23,7 @@ public class Review extends SocialMapsObject {
 
 
     Review(JSONObject json) throws JSONException {
-        super(ObjectType.REVIEW, json.getLong("id"));
+        super(json.getLong("id"));
         this.comment = json.getString("comment");
         this.created = new Date(json.getLong("created") * 1_000L);
         this.liked = json.getBoolean("liked");

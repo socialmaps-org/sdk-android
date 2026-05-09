@@ -77,7 +77,6 @@ public class SocialMapsUnitTest {
 
         // Assert: Response
         assertNotNull(place);
-        assertEquals(ObjectType.PLACE, place.object);
         assertEquals(Long.valueOf(4442), place.id);
         assertEquals("Izz Cafe", place.name);
         assertEquals(Double.valueOf(51.8952597), place.location.lat);
@@ -150,7 +149,6 @@ public class SocialMapsUnitTest {
 
         // Assert: Response
         assertNotNull(place);
-        assertEquals(ObjectType.PLACE, place.object);
         assertEquals(Long.valueOf(4442), place.id);
         assertEquals("Izz Cafe", place.name);
         assertEquals(Double.valueOf(51.8952597), place.location.lat);
@@ -254,7 +252,6 @@ public class SocialMapsUnitTest {
 
         // Assert: Response: First
         Place first = places.getFirst();
-        assertEquals(ObjectType.PLACE, first.object);
         assertEquals(Long.valueOf(4442), first.id);
         assertEquals("Izz Cafe", first.name);
         assertEquals(Double.valueOf(51.8952597), first.location.lat);
@@ -330,7 +327,6 @@ public class SocialMapsUnitTest {
 
         // Assert: Response: First
         Review first = reviews.getFirst();
-        assertEquals(ObjectType.REVIEW, first.object);
         assertEquals(Long.valueOf(1), first.id);
         assertEquals("Lovely little restaurant!", first.comment);
         assertEquals(Long.valueOf(7), first.userRef.id);
@@ -376,7 +372,6 @@ public class SocialMapsUnitTest {
 
         // Assert: Response
         assertNotNull(review);
-        assertEquals(ObjectType.REVIEW, review.object);
         assertEquals(Long.valueOf(1L), review.id);
         assertEquals(true, review.liked);
         assertEquals("Lovely little restaurant!", review.comment);

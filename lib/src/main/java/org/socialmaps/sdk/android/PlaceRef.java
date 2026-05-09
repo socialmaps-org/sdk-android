@@ -10,12 +10,12 @@ public class PlaceRef extends SocialMapsObject {
     private final Place place;
 
     PlaceRef(@NonNull Place place) {
-        super(ObjectType.PLACE, place.id);
+        super(place.id);
         this.place = place;
     }
 
     PlaceRef(@NonNull JSONObject json) throws JSONException {
-        super(ObjectType.PLACE, json.getLong("id"));
+        super(json.getLong("id"));
         this.place = null;
     }
 
