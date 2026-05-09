@@ -16,7 +16,7 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
-public final class Http {
+final class Http {
     private static final int TIMEOUT_MS = 15000;
 
     private Http() {
