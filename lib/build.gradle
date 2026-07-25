@@ -52,7 +52,7 @@ dokka {
 
             sourceLink {
                 localDirectory.set(file('src/main/java'))
-                remoteUrl.set(new URI('https://codeberg.org/socialmaps/sdk-android/src/branch/main/lib/src/main/java'))
+                remoteUrl.set(new URI('https://gitlab.com/socialmaps/sdk-android/-/tree/main/lib/src/main/java'))
                 remoteLineSuffix.set('#L')
             }
         }
@@ -66,7 +66,7 @@ mavenPublishing {
         name = 'Social Maps SDK for Android'
         description = 'Social Maps SDK for Android'
         inceptionYear = '2026'
-        url = 'https://codeberg.org/socialmaps/sdk-android'
+        url = 'https://gitlab.com/socialmaps/sdk-android'
 
         licenses {
             license {
@@ -81,9 +81,9 @@ mavenPublishing {
             }
         }
         scm {
-            url = 'https://codeberg.org/socialmaps/sdk-android'
-            connection = 'scm:git:git://codeberg.org/socialmaps/sdk-android.git'
-            developerConnection = 'scm:git:ssh://git@codeberg.org/socialmaps/sdk-android.git'
+            url = 'https://gitlab.com/socialmaps/sdk-android'
+            connection = 'scm:git:git://gitlab.com/socialmaps/sdk-android.git'
+            developerConnection = 'scm:git:ssh://git@gitlab.com:socialmaps/sdk-android.git'
         }
     }
 
