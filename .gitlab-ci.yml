@@ -1,0 +1,24 @@
+stages:
+  - verify
+  - test
+
+variables:
+  GRADLE_OPTS: "-Dorg.gradle.daemon=false"
+
+lint:
+  stage: verify
+  image: ghcr.io/cirruslabs/android-sdk:36
+  script:
+    - ./gradlew lint --no-daemon
+
+test:
+  stage: test
+  image: ghcr.io/cirruslabs/android-sdk:36
+  script:
+    - ./gradlew test --no-daemon
+
+dokkaGeneratePublicationHtml:
+  stage: test
+  image: ghcr.io/cirruslabs/android-sdk:36
+  script:
+    - ./gradlew dokkaGeneratePublicationHtml --no-daemon
